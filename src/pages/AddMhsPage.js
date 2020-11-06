@@ -2,7 +2,7 @@ import React from "react";
 import Jumbotron from "../components/jumbotron";
 import FormComp from "../components/formComp";
 import NavbarComp from "../components/navbar";
-import { connect, useDispatch } from "react-redux";
+import { connect } from "react-redux";
 import { postMahasiswa } from "../actions/mahasiswaAction";
 
 let initialState = {

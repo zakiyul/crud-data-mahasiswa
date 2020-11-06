@@ -7,44 +7,43 @@ import {Link} from 'react-router-dom'
 
 const { SearchBar } = Search;
 
-const columns = [
-  {
-    sort: true,
-    dataField: "id",
-    text: "Id",
-    headerStyle: () => {
-      return { width: "5%" };
-    },
-  },
-  {
-    sort: true,
-    dataField: "nama",
-    text: "Nama",
-  },
-  {
-    sort: true,
-    dataField: "nim",
-    text: "Nim",
-  },
-  {
-    sort: true,
-    dataField: "link",
-    text: "Action",
-    headerStyle: () => {
-      return { width: "20%" };
-    },
-    formatter: (rowContent, row) => {
-      return (
-        <div>
-          <button className="btn btn-success mr-3"><FontAwesomeIcon icon={faInfo} /> Detail</button>
-          <button className="btn btn-danger"><FontAwesomeIcon icon={faTrash} /> Delete</button>
-        </div>
-      );
-    },
-  },
-];
-
 const tableComp = (props) => {
+  const columns = [
+    {
+      sort: true,
+      dataField: "id",
+      text: "Id",
+      headerStyle: () => {
+        return { width: "5%" };
+      },
+    },
+    {
+      sort: true,
+      dataField: "nama",
+      text: "Nama",
+    },
+    {
+      sort: true,
+      dataField: "nim",
+      text: "Nim",
+    },
+    {
+      sort: true,
+      dataField: "link",
+      text: "Action",
+      headerStyle: () => {
+        return { width: "20%" };
+      },
+      formatter: (rowContent, row) => {
+        return (
+          <div>
+            <Link to={`/mahasiswa/${row.id}`} className="btn btn-success mr-3"><FontAwesomeIcon icon={faInfo} /> Detail</Link>
+            <button className="btn btn-danger"><FontAwesomeIcon icon={faTrash} /> Delete</button>
+          </div>
+        );
+      },
+    },
+  ];
   return (
     <div className="container">
       {props.data ? (

@@ -11,7 +11,6 @@ function HomePage(props) {
   }, []);
 
   const dataMhs = useSelector((state) => state.mahasiswa.getMahasiswa.data);
-  console.log(dataMhs);
   return (
     <div>
       <NavbarComp />

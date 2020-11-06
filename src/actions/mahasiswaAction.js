@@ -2,6 +2,7 @@ import axios from "axios";
 
 export const GET_MAHASISWA = "GET_MAHASISWA";
 export const POST_MAHASISWA = "POST_MAHASISWA";
+export const GET_MAHASISWA_DETAIL = "GET_MAHASISWA_DETAIL";
 
 export const getMahasiswa = () => {
   return (dispatch) => {
@@ -42,6 +43,25 @@ export const postMahasiswa = (data) => {
         dispatch({
           type: POST_MAHASISWA,
           data: false,
+        });
+      });
+  };
+};
+
+export const getMahasiswaDetail = (id) => {
+  return (disptach) => {
+    axios
+      .get(`http://localhost:8000/api/mahasiswa/${id}`)
+      .then((res) => {
+        disptach({
+          type: GET_MAHASISWA_DETAIL,
+          payload: res.data,
+        });
+      })
+      .catch(() => {
+        disptach({
+          type: GET_MAHASISWA_DETAIL,
+          payload: false,
         });
       });
   };
